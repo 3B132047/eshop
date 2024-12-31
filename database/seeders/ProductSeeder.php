@@ -10,7 +10,6 @@ class ProductSeeder extends Seeder
 {
     public function run()
     {
-        $categories = Category::all();
         $products = [
             'Electronics' => ['Phone', 'Laptop', 'Camera', 'Headphones', 'Smart Watch'],
             'Clothing' => ['T-Shirt', 'Jeans', 'Jacket', 'Shoes', 'Hat'],
@@ -19,11 +18,14 @@ class ProductSeeder extends Seeder
             'Toys' => ['Doll', 'Puzzle', 'Toy Car', 'Board Game', 'Lego Set'],
         ];
 
+        $categories = Category::all();
+
         foreach ($categories as $category) {
             foreach ($products[$category->name] as $product) {
                 Product::create([
                     'name' => $product,
                     'category_id' => $category->id,
+                    'price' => rand(100, 1000), 
                 ]);
             }
         }

@@ -11,7 +11,9 @@ class CategorySeeder extends Seeder
     {
         $categories = ['Electronics', 'Clothing', 'Books', 'Home Appliances', 'Toys'];
         foreach ($categories as $category) {
-            Category::create(['name' => $category]);
+            Category::create([
+                'name' => $category,
+            ]);
         }
     }
 }

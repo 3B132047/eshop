@@ -13,9 +13,11 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('user_id');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->decimal('total_price', 8, 2)->default(0);
             $table->timestamps();
         });
+        
     }
 
     /**
