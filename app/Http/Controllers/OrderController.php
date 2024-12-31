@@ -41,7 +41,10 @@ class OrderController extends Controller
      */
     public function show(Order $order)
     {
-        //
+        $data = [
+            'order'=>$order,
+        ];
+        return view('orders.show', $data);
     }
 
     /**
